@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Your Car</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
+    />
+</head>
+
+<body>
+    <form action="/cars" method="POST">
+        <div class="field">
+            <label class="label">Car name</label>
+            <div class="control">
+                <input class="input" type="text" placeholder="My new favorite product" name="name" />
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Car Price</label>
+            <div class="control">
+                <input class="input" type="number" placeholder="32" name="price" />
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Car Image</label>
+            <div class="control">
+                <input class="input" type="text" placeholder="http://" name="image" />
+            </div>
+        </div>
+        <div class="field">
+            <label class="label">Car Description</label>
+            <div class="control">
+                <input class="input" type="text" placeholder="Tell the Users all about this" name="descrption" />
+            </div>
+        </div>
+
+        <div class="field is-grouped">
+            <div class="control">
+                <button class="button is-info is-outlined">Create Car</button>
+            </div>
+        </div>
+    </form>
