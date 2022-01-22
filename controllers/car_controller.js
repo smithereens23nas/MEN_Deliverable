@@ -69,75 +69,34 @@ Car.deleteMany({}, (error, deletedCar) => {
   console.log(deletedCar);
 });
 
-// router.get('/', (req, res) => {
-
-//     Car.find({}, (error, foundCars) => {
-//         if(error) return console.log(error);
-
-//         console.log(foundCars)
-//         context = {
-//             Cars: foundCars
-//         }
-//         res.render('index.ejs', context);
-//     })
-//     /*
-//     1. the first param of render() is the .ejs file
-//     that we want to inject data into.
-
-//     2. the second param is the data that we want
-//     to inject into the .ejs file (it must be an object)
-//     */
-
-//     /*
-//     there will be a variable available inside
-//     the show.ejs file called Car,
-//     and its value the foundItem
-//    */
-
-// });
-
-// router.post('/', (req, res) => {
-//     // Start by console logging things out here for the req, then req.body
-//     cars.create(req.body, (error, createdCar) => {
-//         if(error) console.log(error);
-//         console.log(createdCar);
-
-//         res.redirect("/cars");
-//     })
-// })
-
-// router.get("/create", function(req, res) {
-//     res.render("new.ejs")
-// })
-
 // // show route
 // // this route will catch GET requests to /Cars/index/ and respond with a single Car
-// router.get('/:CarId', (req, res) => {
+router.get('/:CarId', (req, res) => {
 
-//     cars.findById(req.params.CarId, (error, foundCar) => {
-//         if (error) {
-//             console.log(req.params)
-//             console.log(error);
-//             const context = { error: error };
-//             return res.status(404).render("404", context);
-//         }
-//         /*
-//         1. the first param of render() is the .ejs file
-//         that we want to inject data into.
+    Car.findById(req.params.CarId, (error, foundCar) => {
+        if (error) {
+            console.log(req.params)
+            console.log(error);
+            const context = { error: error };
+            return res.status(404).render("404", context);
+        }
+        /*
+        1. the first param of render() is the .ejs file
+        that we want to inject data into.
 
-//         2. the second param is the data that we want
-//         to inject into the .ejs file (it must be an object)
-//         */
+        2. the second param is the data that we want
+        to inject into the .ejs file (it must be an object)
+        */
 
-//         /*
-//         there will be a variable available inside
-//         the show.ejs file called Car,
-//         and its value the foundItem
-//        */
-//         res.render('show.ejs', {car: foundCar});
-//     });
+        /*
+        there will be a variable available inside
+        the show.ejs file called Car,
+        and its value the foundItem
+       */
+        res.render('show.ejs', {car: foundCar});
+    });
 
-// });
+});
 
 // router.delete('/:CarId', (req, res) => {
 //     cars.findByIdAndDelete(req.params.CarId, (error, deleteCar) => {

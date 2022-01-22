@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include ('./partials/head.ejs', {page: car.car_make }) %>
+    
+  <!-- This is my nav bar now -->
+  <%- include ('./partials/nav.ejs') %>
+
+    <section class="hero is-medium has-background-light">
+      <div class="hero-body">
+        <h1 class="title">Tesla Show Page</h1>
+      </div>
+    </section>
+
+    <div class="container is-max-widescreen p-5">
+      <article class="media">
+        <figure class="media-left">
+          <p class="image is-328x328">
+            <img src="<%= car.image %>" alt="car img" />
+          </p>
+        </figure>
+        <div class="media-content">
+          <div class="content">
+            <h3>car_make: <%= car.car_make %></h3>
+            <h3>car_model: <%= car.car_model %></h3>
+            <small>price: $<%= car.price %></small>
+            <div class="field mt-5 is-grouped">
+              <div class="control">
+                <a class="button is-info" href="/cars/<%= car._id %>/edit">Edit Product
+                </a>
+              </div>
+              <p class="control">
+                <form action="/cars/<%= car._id %>?_method=DELETE" method="POST">
+                    <input class="button is-danger" type="submit" value="Delete Product"/>                    
+                </form>
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </body>
+</html>
