@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include ('./partials/head.ejs', {page: car.car_make }) %>
+  <%- include ('./partials/head.ejs', {page: car }) %>
     
   <!-- This is my nav bar now -->
   <%- include ('./partials/nav.ejs') %>
@@ -20,12 +20,12 @@
         </figure>
         <div class="media-content">
           <div class="content">
-            <h3>car_make: <%= car.car_make %></h3>
-            <h3>car_model: <%= car.car_model %></h3>
+            <h3>Car Make: <%= car.car_make %></h3>
+            <h3>Car Model: <%= car.car_model %></h3>
             <small>price: $<%= car.price %></small>
             <div class="field mt-5 is-grouped">
               <div class="control">
-                <a class="button is-info" href="/cars/<%= car._id %>/edit">Edit Product
+                <a class="button is-info" href="/cars/<%= car.id %>/edit">Edit Car
                 </a>
               </div>
               <p class="control">

@@ -98,38 +98,37 @@ router.get('/:CarId', (req, res) => {
 
 });
 
-// router.delete('/:CarId', (req, res) => {
-//     cars.findByIdAndDelete(req.params.CarId, (error, deleteCar) => {
-//         if(error) {
-//             console.log(error);
-//             res.send(error);
-//         }
+router.delete('/:carId', (req, res) => {
+    Car.findByIdAndDelete(req.params.carId, (error, deleteCar) => {
+        if(error) {
+            console.log(error);
+            res.send(error);
+        }
 
-//         console.log(deleteCar);
-//         res.redirect('/cars')
-//     })
-// })
+        console.log(deleteCar);
+        res.redirect('/cars')
+    })
+})
 
-// router.get('/:CarId/edit', (req, res) => {
-//     cars.findById(req.params.CarId, (error, updatedCar) => {
-//         if(error) console.log(error);
+router.get('/:carId/edit', (req, res) => {
+    Car.findById(req.params.carId, (error, updatedCar) => {
+        if(error) console.log(error);
 
-//         console.log(updatedCar);
-//         res.render('edit.ejs', { car: updatedCar})
-//     })
-// })
+        console.log(updatedCar);
+        res.render('edit.ejs', { car: updatedCar})
+    })
+})
+router.put('/:carId', (req, res) => {
+    console.log(`The request is ${req}`)
+    // console.log(`The request's body is ${req.body}`)
 
-// router.put('/:CarId', (req, res) => {
-//     console.log(`The request is ${req}`)
-//     // console.log(`The request's body is ${req.body}`)
+    Car.findByIdAndUpdate(req.params.carId, req.body,(error, updatedCar) => {
+        if (error) return console.log(error);
 
-//     cars.findByIdAndUpdate(req.params.CarId, req.body,(error, updatedCar) => {
-//         if (error) return console.log(error);
+        console.log(updatedCar);
 
-//         console.log(updatedCar);
-
-//         return res.redirect(`/cars`);
-//     });
-// });
+        return res.redirect('/cars');
+    });
+});
 
 module.exports = router;

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <!-- This is my heading now -->
+    <%- include ('./partials/head.ejs', {page: 'All Teslas'}) %>
+    
+    <!-- This is my nav bar now -->
+    <%- include ('./partials/nav.ejs') %>
+
+    <section class="hero is-medium has-background-light">
+      <div class="hero-body">
+        <h1 class="title">Edit Tesla page</h1>
+      </div>
+    </section>
+
+    <section class="container is-max-widescreen p-5">
+      <!--  NOTE: action will be the route, method will be the HTTP verb-->
+      <form action="/cars/<%=car.id %>?_method=PUT" method="POST">
+        <div class="field">
+          <label class="label">Car Make</label>
+          <div class="control">
+            <input
+              class="input"
+              type="text"
+              placeholder="name of car make"
+              name="car_make"
+              value="<%= car.car_make %> "
+            />
+          </div>
+        </div>
+        <div class="field">
+            <label class="label">Car Model</label>
+            <div class="control">
+              <input
+                class="input"
+                type="text"
+                placeholder="name of car model"
+                name="car_model"
+                value="<%= car.car_model %> "
+              />
+            </div>
+          </div>
+
+        <div class="field">
+          <label class="label">Car Price</label>
+          <div class="control">
+            <input
+              class="input"
+              type="text"
+              placeholder="car price"
+              name="price"
+              value="<%= car.price %>"
+            />
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Car Image</label>
+          <div class="control">
+            <input
+              class="input"
+              type="text"
+              placeholder="car image"
+              name="image"
+              value="<%= car.image %> "
+            />
+          </div>
+        </div>
+
+        <div class="field is-grouped">
+          <div class="control">
+            <a class="button is-info" href="/cars/<%= car.id %> "
+              >Cancel</a
+            >
+            <button class="button is-success">Edit Car</button>
+          </div>
+        </div>
+      </form>
+    </section>
+  </body>
+</html>
